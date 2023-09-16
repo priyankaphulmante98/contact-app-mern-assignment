@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+mongoose.set("strictQuery", false);
 // Connect to the MongoDB database
 mongoose
   .connect(`mongodb://localhost:27017/contact`)

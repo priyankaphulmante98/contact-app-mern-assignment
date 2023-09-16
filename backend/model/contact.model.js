@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-// Create a Mongoose model for the user  detail collection using this schema.
+// Create a Mongoose model for the user contact detail collection using this schema.
 const contactSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -17,4 +17,5 @@ const contactSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("contact", contactSchema);
+const contact = mongoose.model("contact", contactSchema);
+module.exports = contact;
