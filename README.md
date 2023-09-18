@@ -10,6 +10,15 @@
 - To enhance user experience, I incorporated search functionality, enabling users to quickly locate contacts by name. Additionally, I implemented sorting options, making it easy to organize and view contacts based on various criteria. This assignment demonstrates my proficiency in both frontend and backend development, as well as my ability to create a cohesive and user-friendly application for managing contacts.
 <br />
 
+# Features 
+ - ADD Contact
+ - GET Contact
+ - UPDATE Contact
+ - DELETE Contact
+ - Sorting Contact By Name
+ - Searching Contact By Name
+ - PDF Download  - 
+
 ## Live Demo 
 
 [Vercel link available here]()
