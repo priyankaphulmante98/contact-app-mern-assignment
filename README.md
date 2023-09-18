@@ -1,3 +1,6 @@
+![Screenshot (1731)](https://github.com/priyankaphulmante98/contact-app-mern-assignment/assets/103947245/f144cab5-99e3-49c8-a73c-993cb7e76fa8)
+
+<br />
 # contact-app-mern-assignment
 
 - In this assignment, I successfully designed and implemented a full-stack contact management application. On the backend, I utilized Express.js to create an API for storing and managing contact information. This API supported basic CRUD operations, allowing users to retrieve, create, update, and delete contacts. Contact data was stored MongoDB database.
@@ -13,11 +16,6 @@
 
 
 ## Prview 
-
-![Screenshot (1731)](https://github.com/priyankaphulmante98/contact-app-mern-assignment/assets/103947245/f144cab5-99e3-49c8-a73c-993cb7e76fa8)
-
-<br />
-
 
 ![Screenshot (1730)](https://github.com/priyankaphulmante98/contact-app-mern-assignment/assets/103947245/bfc116e4-9796-4f2e-884b-e06bb9b4553e)
 
