@@ -1,0 +1,160 @@
+body,
+h2,
+p,
+table {
+  margin: 0;
+  padding: 0;
+}
+
+i{
+  cursor: pointer;
+}
+
+/* Add Update Form Styles start here */
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+h2 {
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  color:gray;
+}
+
+button[type="submit"] {
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  /* border-radius: 3px; */
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* style table container */
+.table-container {
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 20px;
+}
+
+/* Table Style start here */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+
+th {
+  background: linear-gradient(180deg,#1b82b5,#43c2e7);
+  text-align: left;
+  color: white;
+  padding: 10px;
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+ 
+}
+td i {
+  color:#1b82b5;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* tr:nth-child(odd):hover {
+  cursor: pointer;
+  background-color: #f2f2f2;
+
+}
+tr:nth-child(even):hover {
+  cursor: pointer;
+  background-color: #f2f2f2;
+} */
+
+#table_cra_heding {
+  text-align: end;
+}
+
+.custom-checkbox {
+  width: 20px; 
+  height: 20px; 
+  cursor: pointer;
+  
+
+}
+
+
+/* taskbar styles */
+.icon {
+  font-size: 18px;
+  align-items: center;
+  margin-right: 10px;
+}
+.heading_icon {
+  font-size: 15px;
+  margin-left: 10px;
+  align-items: center;
+}
+.taskbar_table {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: linear-gradient(180deg,#1b82b5,#43c2e7);
+  color: white;
+}
+.taskbar_table h1{
+  font-size: 18px;
+  font-weight: bold;
+
+}
+.taskbar_table input[type="text"]{
+  width: 300px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical;
+ 
+}
+
+/* Responsive styles */
+@media screen and (max-width: 600px) {
+  .table-container {
+    overflow-x: auto;
+  }
+}
+
