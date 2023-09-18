@@ -7,7 +7,9 @@ On the front end, I developed a React application that interacted seamlessly wit
 To enhance user experience, I incorporated search functionality, enabling users to quickly locate contacts by name. Additionally, I implemented sorting options, making it easy to organize and view contacts based on various criteria. This assignment demonstrates my proficiency in both frontend and backend development, as well as my ability to create a cohesive and user-friendly application for managing contacts.
 
 <br />
-![Screenshot (1731)](https://github.com/priyankaphulmante98/contact-app-mern-assignment/assets/103947245/cc30695e-b8ac-44a2-bb00-bdd40f13ffe0)
+![Screenshot (1731)](https://github.com/priyankaphulmante98/contact-app-mern-assignment/assets/103947245/1995296f-20fd-4394-9b48-931d72c00150)
+
+
 <br />
 
 
@@ -31,8 +33,11 @@ To enhance user experience, I incorporated search functionality, enabling users 
 
 ## Prview 
 
+
+![Screenshot (1730)](https://github.com/priyankaphulmante98/contact-app-mern-assignment/assets/103947245/bfc116e4-9796-4f2e-884b-e06bb9b4553e)
+
 <br />
-![Screenshot (1730)](https://github.com/priyankaphulmante98/contact-app-mern-assignment/assets/103947245/3706a46a-4263-4574-ae99-7c28fef35cec)
+
 
 ## Run Locally
 
