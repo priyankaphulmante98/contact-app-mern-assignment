@@ -27,7 +27,7 @@ import { saveAs } from "file-saver";
 function DataTable() {
   const [tableData, setTableData] = useState([]);
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [selectedCapsule, setSelectedCapsule] = useState(null);
+  const [selecteData, setSelectedData] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [updateId, setUpdateId] = useState(null);
   const [searchText, setSearchText] = useState("");
@@ -47,16 +47,21 @@ function DataTable() {
   // Add the UserContact form
   function handleSubmit(e) {
     e.preventDefault();
+
     console.log(data);
     axios
       .post(`https://contact-app-mern-backend.onrender.com/contacts`, data)
       .then((res) => {
         alert("User added successfully");
         getData();
+        onClose();
+      })
+      .catch((error) => {
+        console.error("Error adding contact:", error);
       });
   }
 
-  // view the UserContact
+  // View the UserContact
   async function getData() {
     try {
       const res = await axios.get(
@@ -70,32 +75,32 @@ function DataTable() {
   }
 
   // Update the UserContact
-
-  function handleEdit(id) {
+  function handleEdit() {
     try {
-      const contactToEdit = tableData.find((e) => e._id === id);
-      onOpen();
-      axios.put(
-        `https://contact-app-mern-backend.onrender.com/contacts/${id}`,
-        data
-      );
-      alert("Contact updated successfully");
-      getData();
-      onClose();
-      setUpdateId(null);
-      setData({
-        name: contactToEdit.name,
-        email: contactToEdit.email,
-        phone: contactToEdit.phone,
-      });
-      setIsEditing(false);
+      setIsEditing(true);
+      axios
+        .put(
+          `https://contact-app-mern-backend.onrender.com/contacts/${updateId}`,
+          data
+        )
+        .then((res) => {
+          alert("Contact updated successfully");
+          onClose();
+          getData();
+          setUpdateId(null);
+          setData({
+            name: "",
+            email: "",
+            phone: "",
+          });
+          setIsEditing(false);
+        });
     } catch (error) {
       console.error("Error editing contact:", error);
     }
   }
 
-  // delete the UserContact
-
+  // Delete the UserContact
   function handleDelete(id) {
     try {
       axios
@@ -109,7 +114,7 @@ function DataTable() {
     }
   }
 
-  // search the UserContact by name
+  // Search the UserContact by name
   const handleSearch = () => {
     const search = searchText.toLowerCase();
     if (search === "") {
@@ -126,7 +131,6 @@ function DataTable() {
   const debouncedSearch = useRef(debounce(handleSearch, 200));
 
   // Sort the UserContact by name
-
   const toggleSortOrder = () => {
     setSortOrder((e) => (e === "asc" ? "desc" : "asc"));
   };
@@ -139,8 +143,7 @@ function DataTable() {
     }
   });
 
-  // generate and download pdf of table UserContact
-
+  // Generate and download PDF of table UserContact
   const generatePDFDocument = async () => {
     try {
       const blob = await pdf(
@@ -186,8 +189,7 @@ function DataTable() {
     }
   };
 
-  //select all checkbox Select box functionallity
-
+  // Select all checkbox Select box functionality
   const toggleItemSelection = (id) => {
     if (selectedItems.includes(id)) {
       setSelectedItems(selectedItems.filter((item) => item !== id));
@@ -209,7 +211,7 @@ function DataTable() {
     getData();
   }, []);
 
-  // for pdf format styles
+  // For PDF format styles
   const styles = StyleSheet.create({
     table: {
       display: "table",
@@ -260,7 +262,7 @@ function DataTable() {
             className="fa-solid fa-user-plus"
             style={{ fontSize: "20px", color: "white", marginLeft: "20px" }}
             onClick={() => {
-              setSelectedCapsule();
+              setSelectedData();
               onOpen();
             }}
           ></i>
@@ -334,13 +336,20 @@ function DataTable() {
               <td>{e.phone}</td>
               <td style={{ textAlign: "right" }}>
                 <i className="fa-regular fa-message icon"></i>
-                <i class="fa-brands fa-instagram icon"></i>
-                <i class="fa-solid fa-gear icon"></i>
+                <i className="fa-brands fa-instagram icon"></i>
+                <i className="fa-solid fa-gear icon"></i>
                 <i
                   className="fa-regular fa-pen-to-square icon"
                   onClick={() => {
-                    onOpen(e.id);
-                    handleEdit(e._id);
+                    setSelectedData();
+                    onOpen();
+                    setUpdateId(e._id);
+                    setData({
+                      name: e.name,
+                      email: e.email,
+                      phone: e.phone,
+                    });
+                    setIsEditing(true);
                   }}
                 ></i>
                 <i
@@ -353,7 +362,8 @@ function DataTable() {
         </tbody>
       </table>
 
-      {/* Modal Starts here  */}
+      {/* Modal Starts here   */}
+
       <Modal isCentered isOpen={isOpen} onClose={onClose}>
         <ModalOverlay
           bg="none"
@@ -369,40 +379,45 @@ function DataTable() {
           <ModalBody>
             <Box className="container">
               <form
-                action="#"
-                method="post"
-                onSubmit={(e) => (isEditing ? handleEdit(e) : handleSubmit(e))}
+                action=""
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  isEditing ? handleEdit() : handleSubmit(e);
+                }}
               >
                 <Box className="form-group">
-                  <label for="name">Name:</label>
+                  <label htmlFor="name">Name:</label>
                   <Input
                     type="text"
                     id="name"
                     name="name"
                     placeholder="Your Name"
                     onChange={(e) => handleChage(e)}
+                    value={data.name}
                     required
                   />
                 </Box>
                 <Box className="form-group">
-                  <label for="phone">Phone Number:</label>
+                  <label htmlFor="phone">Phone Number:</label>
                   <Input
                     type="tel"
                     id="phone"
                     name="phone"
                     placeholder="Your Phone Number"
                     onChange={(e) => handleChage(e)}
+                    value={data.phone}
                     required
                   />
                 </Box>
                 <Box className="form-group">
-                  <label for="email">Email:</label>
+                  <label htmlFor="email">Email:</label>
                   <Input
                     type="email"
                     id="email"
+                    placeholder="Type Your email"
                     name="email"
                     onChange={(e) => handleChage(e)}
-                    placeholder="Your Email Address"
+                    value={data.email}
                     required
                   />
                 </Box>
@@ -411,7 +426,6 @@ function DataTable() {
                   backgroundColor=" #007BFF"
                   color="white"
                   marginRight={"10px"}
-                  onClick={onClose}
                 >
                   {isEditing ? "Update" : "Submit"}
                 </Button>
@@ -421,6 +435,12 @@ function DataTable() {
                   onClick={() => {
                     onClose();
                     setIsEditing(false);
+                    setUpdateId(null);
+                    setData({
+                      name: "",
+                      email: "",
+                      phone: "",
+                    });
                   }}
                 >
                   Close
