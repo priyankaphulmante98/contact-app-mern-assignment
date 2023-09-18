@@ -21,7 +21,7 @@
 
 ## Live Demo 
 
-[Vercel link available here]()
+[Vercel link available here](https://skills-first.netlify.app)
 
 
 ## Prview 
