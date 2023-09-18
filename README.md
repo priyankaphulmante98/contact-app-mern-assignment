@@ -7,7 +7,19 @@
 - To enhance user experience, I incorporated search functionality, enabling users to quickly locate contacts by name. Additionally, I implemented sorting options, making it easy to organize and view contacts based on various criteria. This assignment demonstrates my proficiency in both frontend and backend development, as well as my ability to create a cohesive and user-friendly application for managing contacts.
 <br />
 
+## Live Demo 
+
+[Vercel link available here]()
+
+
+## Prview 
+
 ![Screenshot (1731)](https://github.com/priyankaphulmante98/contact-app-mern-assignment/assets/103947245/f144cab5-99e3-49c8-a73c-993cb7e76fa8)
+
+<br />
+
+
+![Screenshot (1730)](https://github.com/priyankaphulmante98/contact-app-mern-assignment/assets/103947245/bfc116e4-9796-4f2e-884b-e06bb9b4553e)
 
 <br />
 
@@ -25,18 +37,6 @@
 - MongoDB
 - Vercel
 - Render
-
-## Live Demo 
-
-[Vercel link available here]()
-
-## Prview 
-
-
-![Screenshot (1730)](https://github.com/priyankaphulmante98/contact-app-mern-assignment/assets/103947245/bfc116e4-9796-4f2e-884b-e06bb9b4553e)
-
-<br />
-
 
 ## Run Locally
 
